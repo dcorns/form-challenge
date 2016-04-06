@@ -1,6 +1,6 @@
 /* app css stylesheet */
 html{
-    font-size: 17px;
+    font-size: 18px;
 }
 body, form{
     background: url("/formChallenge/images/http---icon-park.com-imagefiles-tartan_check01_gray1.svg");
@@ -15,6 +15,12 @@ form input{
 }
 form input[type=text]{
     width: 40%;
+}
+form input[type=text].single-column{
+    width: 100%;
+}
+form input[type=text].two-column{
+    width: 50%;
 }
 form input[type=date]{
     width: 19%;
@@ -126,4 +132,64 @@ form input:focus, textarea:focus{
 
 .hide{
     display: none;
+}
+/*Responsive*/
+.patient-name,
+.disability-date,
+.claimant-sign-date,
+.spouse-sign-date,
+.physician-signature-date,
+.licensed-physician,
+.licensed-surgeon {
+    display: inline;
+}
+@media(max-width: 1350px) {
+    #patient-name,
+    #claimant-guardian-signature,
+    #spouse-signature,
+    #physician-signature {
+        width: 20rem;
+    }
+    #disability-date,
+    #claimant-guardian-signature-date,
+    #spouse-signature-date,
+    #physician-signature-date{
+        width: 15rem;
+    }
+}
+@media(max-width: 1240px){
+    .patient-name{
+        width: 50rem;
+    }
+    .disability-date{
+        display: block;
+    }
+}
+@media (max-width: 1125px){
+    #claimant-guardian-signature,
+    #spouse-signature,
+    #physician-signature {
+        width: 30rem;
+    }
+    .claimant-sign-date,
+    .spouse-sign-date,
+    .physician-signature-date{
+        display: block;
+    }
+}
+@media (max-width: 900px){
+    .licensed-surgeon,
+    .licensed-physician{
+        display: block;
+    }
+}
+@media (max-width: 800px){
+    form input[type=text]{
+        width: 100%;
+    }
+    .claimant-sign-date,
+    .spouse-sign-date,
+    .physician-signature-date{
+        display: inline;
+    }
 }

@@ -19,10 +19,14 @@
     <h2>To be completed by a Physician</h2>
         <fieldset>
             <legend>Patient Information</legend>
-            <label for="patient-name">Patient's Name: </label>
-            <input id="patient-name" type="text" placeholder="Enter patient's name here"/>
-            <label for="disability-date">Date of disability: </label>
-            <input id="disability-date" type="date"/>
+            <div class="patient-name">
+                <label for="patient-name">Patient's Name: </label>
+                <input id="patient-name" type="text" placeholder="Enter patient's name here"/>
+            </div>
+            <div class="disability-date">
+                <label for="disability-date">Date of disability: </label>
+                <input id="disability-date" type="date"/><br>
+            </div>
 
             <label for="disability-description">Description of patient's disability:</label><br/>
             <textarea id="disability-description" placeholder="Enter description of patient's disability" rows="4"></textarea>
@@ -32,30 +36,35 @@
 
         <fieldset>
             <legend>Physician Information</legend>
-                <label for="physician-name">Physician's Name</label>
-                <input id="physician-name" type="text" placeholder="Enter physician's name here"/>
-                <label for="physician-phone">Daytime Phone Number</label>
-                <input id="physician-phone" type="number" placeholder="(xxx) xxx-xxxx)"/>
-                <div>
-                    <label for="licensed-physician">I am a licensed physician</label>
-                    <input id="licensed-physician" type="checkbox"/>
-                </div>
-                <div>
-                    <label for="licensed-surgeon">I am a licensed surgeon</label>
-                    <input id="licensed-surgeon" type="checkbox"/>
-                </div>
-                <div>
-                    <label for="physician-specialty">My specialty is: </label>
-                    <input id="physician-specialty" type="text" placeholder="Enter specialty here"/>
-                </div>
+            <label for="physician-name">Physician's Name: </label>
+            <input id="physician-name" type="text" placeholder="Enter physician's name here"/><br/>
+            <label for="physician-phone">Daytime Phone Number: </label>
+            <input id="physician-phone" aria-label="Enter only numbers" type="number" placeholder="Numbers Only"/><br>
+
+            <div class="licensed-physician">
+                <input id="licensed-physician" type="checkbox"/>
+                <label for="licensed-physician">I am a licensed physician</label>
+            </div>
+
+            <div class="licensed-surgeon">
+                <input id="licensed-surgeon" type="checkbox"/>
+                <label for="licensed-surgeon">I am a licensed surgeon</label>
+            </div>
+
+            <div>
+                <label for="physician-specialty">My specialty is: </label>
+                <input id="physician-specialty" type="text" placeholder="Enter specialty here"/>
+            </div>
         </fieldset>
         <fieldset>
             <legend>Physician's Certification</legend>
             <p>I certify that in my medical opinion the above named patient does qualify as a disabled person according to the definition above.</p>
             <button id="btn-physician-signature" aria-label="Click to submit digital signature for physician" class="sign" type="button"></button>
-            <input id="physician-esignature" aria-label="Copy digital signature here" type="text" placeholder="Copy digital signature here"/>
-            <label for="physician-signature-date">Date: </label>
-            <input id="physician-signature-date" type="date" /><br/>
+            <input id="physician-signature" aria-label="Copy digital signature here" type="text" placeholder="Copy digital signature here"/>
+            <div class="physician-signature-date">
+                <label for="physician-signature-date">Date Signed: </label>
+                <input id="physician-signature-date" type="date" /><br/>
+            </div>
         </fieldset>
         <button id="submit-physician-portion" type="button" class="btn-submit">Submit Physician Portion</button>
 </section>
@@ -65,40 +74,40 @@
             <legend>Who is filling out this portion of the form? (Choose One)</legend>
                 <ul id="completed-by-choices">
                     <li>
-                        <label for="completed-by-claimant">Choose if form is completed by claimant</label>
                         <input name="form-completed-by" id="completed-by-claimant" type="radio" value="Claimant"/>
+                        <label for="completed-by-claimant">Choose if form is completed by claimant.</label>
                     </li>
                     <li>
-                        <label for="completed-by-spouse">Choose if form is completed by spouse</label>
                         <input name="form-completed-by" id="completed-by-spouse" type="radio" value="Spouse"/>
+                        <label for="completed-by-spouse">Choose if form is completed by spouse.</label>
                     </li>
                     <li>
-                        <label for="completed-by-legal-guardian">Choose if form is completed by legal guardian</label>
                         <input name="form-completed-by" id="completed-by-legal-guardian" type="radio" value="Guardian"/>
+                        <label for="completed-by-legal-guardian">Choose if form is completed by legal guardian.</label>
                     </li>
                 </ul>
         </fieldset>
             <fieldset>
                 <legend>Claimant Information</legend>
                 <label for="claimant-name">Claimant's Name: </label>
-                <input id="claimant-name" type="text" aria-label="Enter claimants name" placeholder="Enter claimant's name"/>
-                <label for="claimant-phone">Claimant's day time phone number</label>
-                <input id="claimant-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/>
+                <input id="claimant-name" type="text" aria-label="Enter claimants name" placeholder="Enter claimant's name"/><br/>
+                <label for="claimant-phone">Claimant's day time phone number: </label>
+                <input id="claimant-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/><br/>
                 <label for="spouse-name">Name of Claimant's Spouse: </label>
-                <input id="spouse-name" type="text" aria-label="Enter name of claimant's spouse" placeholder="Enter name of claimant's spouse"/>
-                <label for="spouse-phone">Spouse's day time phone number</label>
+                <input id="spouse-name" type="text" aria-label="Enter name of claimant's spouse" placeholder="Enter name of claimant's spouse"/><br/>
+                <label for="spouse-phone">Spouse's day time phone number: </label>
                 <input id="spouse-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/>
             </fieldset>
             <fieldset>
                 <legend>Property Information</legend>
-                <label for="street-address">Street Address</label>
-                <input id="street-address" type="text" placeholder="Enter street address here"/>
+                <label for="street-address">Street Address: </label>
+                <input id="street-address" type="text" class="two-column" placeholder="Enter street address here"/><br/>
                 <label for="city">City: </label>
-                <input id="city" type="text" placeholder="Enter city here"/>
-                <label for="zip-code">Zip Code</label>
-                <input id="zip-code" type="text" placeholder="Enter zip code address here"/>
+                <input id="city" type="text" class="two-column" placeholder="Enter city here"/><br/>
+                <label for="zip-code">Zip Code: </label>
+                <input id="zip-code" type="text" class="two-column" placeholder="Enter zip code here"/><br/>
                 <label for="parcel-number">Assessor's Parcel Number: </label>
-                <input id="parcel-number" type="text" placeholder="Enter assessor's parcel number"/>
+                <input id="parcel-number" type="text" class="two-column" placeholder="Enter assessor's parcel number"/>
             </fieldset>
             <fieldset>
                 <legend>Certificate of Disability</legend>
@@ -125,14 +134,20 @@
             California that the primary purpose of the move to the replacement dwelling is to satisfy the identified disability‑related requirements described in Part 1</p>
                 <p id="certification-b" class="hide">I certify (or declare) under penalty of perjury under the laws of the State of
             California that the primary purpose of the move to the replacement dwelling is to alleviate the financial burdens caused by the disability</p>
+
                 <button id="btn-claimant-guardian-signature" aria-label="Click here to submit digital signature for claimant/guardian" class="sign" type="button"></button>
                 <input id="claimant-guardian-signature" type="text" aria-label="Paste digital signature for claimant/guardian in here" placeholder="Paste digital signature for claimant/guardian in here"/>
-                <label for="claimant-guardian-signature-date">Date Signed: </label>
-                <input id="claimant-guardian-signature-date" type="date"/>
-
+                <div class="claimant-sign-date">
+                    <label for="claimant-guardian-signature-date">Date Signed: </label>
+                    <input id="claimant-guardian-signature-date" type="date"/>
+                </div>
                 <button id="btn-spouse-signature" aria-label="Click to submit digital signature for claimant or guardian" class="sign" type="button"></button>
-                <input id="spouse-signature" type="text" aria-label="Paste digital signature for spouse in here" placeholder="Paste digital signature for spouse in here"/><label for="spouse-signature-date">Date Signed: </label>
-                <input id="spouse-signature-date" type="date"/>
+                <input id="spouse-signature" type="text" aria-label="Paste digital signature for spouse in here" placeholder="Paste digital signature for spouse in here"/>
+                <div class="spouse-sign-date">
+                    <label for="spouse-signature-date">Date Signed: </label>
+                    <input id="spouse-signature-date" type="date"/>
+                </div>
+
             </fieldset>
             <input id="form-completed-by-email" type="email" aria-label="Preparer's Email Address" placeholder="Preparer's Email Address"/><br/>
             <button id="submit-claimant-portion" aria-label="Click to submit claimant portion of form" type="button" class="btn-submit">Submit Claimant Portion</button>

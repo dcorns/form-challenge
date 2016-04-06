@@ -19,7 +19,7 @@
     licensedPhysician: new FormObject(document.getElementById('licensed-physician')),
     licensedSurgeon: new FormObject(document.getElementById('licensed-surgeon')),
     physicianSpecialty: new FormObject(document.getElementById('physician-specialty')),
-    physicianEsignature: new FormObject(document.getElementById('physician-esignature')),
+    physicianEsignature: new FormObject(document.getElementById('physician-signature')),
     btnPhysicianSignature: new FormObject(document.getElementById('btn-physician-signature')),
     signatureDate: new FormObject(document.getElementById('physician-signature-date')),
     btnSubmitPhysician: new FormObject(document.getElementById('submit-physician-portion')),
@@ -171,15 +171,15 @@
       case 'a-or-b':
         switch (choice){
           case 'A':
-            toggleVisibility(formDom.descriptionA.el);
-            toggleVisibility(formDom.certA.el);
-            if(!(formDom.certB.el.classList.contains('hide'))){
-              toggleVisibility(formDom.certB.el);
+            if(formDom.descriptionA.el.classList.contains('hide')){
+              toggleVisibility(formDom.descriptionA.el);
+              toggleVisibility(formDom.certA.el);
             }
+            if(!(formDom.certB.el.classList.contains('hide'))) toggleVisibility(formDom.certB.el);
             formDom.descriptionA.required = true;
             break;
           case 'B':
-            toggleVisibility(formDom.certB.el);
+            if(formDom.certB.el.classList.contains('hide')) toggleVisibility(formDom.certB.el);
             if(!(formDom.certA.el.classList.contains('hide'))){
               toggleVisibility(formDom.descriptionA.el);
               toggleVisibility(formDom.certA.el);
@@ -198,4 +198,11 @@
     }
   }
 
+
+  //testing
+  window.addEventListener('resize', function(e){
+    console.clear();
+    console.log(innerHeight, innerWidth);
+    console.log(outerHeight, outerWidth);
+  })
 })();
