@@ -184,12 +184,36 @@ form input:focus, textarea:focus{
     }
 }
 @media (max-width: 800px){
-    form input[type=text]{
+    form input[type=text],
+    form input[type=number]{
         width: 100%;
     }
     .claimant-sign-date,
     .spouse-sign-date,
     .physician-signature-date{
         display: inline;
+    }
+}
+@media (max-width: 415px){
+    html{
+        font-size: 13px;
+    }
+    #claimant-guardian-signature,
+    #spouse-signature,
+    #physician-signature,
+    #street-address,
+    #city,
+    #zip-code,
+    #parcel-number,
+    #patient-name,
+    #form-completed-by-email,
+    .btn-submit{
+        width:100%
+    }
+    form header h1{
+        font-size: 3.5rem;
+    }
+    #submit-all{
+        margin-top: 1rem;
     }
 }
