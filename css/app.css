@@ -1,0 +1,129 @@
+/* app css stylesheet */
+html{
+    font-size: 17px;
+}
+body, form{
+    background: url("/formChallenge/images/http---icon-park.com-imagefiles-tartan_check01_gray1.svg");
+}
+
+form input, textarea{
+    background-color: #888888;
+    font-size: 1.5rem;
+}
+form input{
+    height: 2rem;
+}
+form input[type=text]{
+    width: 40%;
+}
+form input[type=date]{
+    width: 19%;
+}
+form input[type=checkbox], input[type=radio]{
+    /*color: green;*/
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    height:1rem;
+    margin: 1rem;
+}
+form label{
+    font-size: 2rem;
+}
+form textarea{
+    width:100%;
+}
+form p{
+    font: 2rem bold;
+}
+form h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+form h2{
+    font-size: 2rem;
+    text-align: center;
+}
+
+form legend{
+    font-size: 2rem;
+    color: #31708f;
+}
+form fieldset{
+    border: 1rem groove #888888;
+}
+form section{
+    border: .2rem ridge #888888;
+    margin-bottom: .2rem;
+}
+form span{
+    font-size: 1.5rem;
+}
+
+form footer{
+    text-align: center;
+    border: .5rem solid #888888;
+}
+
+form ul{
+    list-style-type: none;
+}
+form button.sign{
+    height: 4rem;
+    width: 10rem;
+    border: none;
+    background: url("/formChallenge/images/btn-signature.png") center/7rem no-repeat ;
+    padding-bottom: 1rem;
+}
+form button.sign:active{
+    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat ;
+}
+form button.sign:hover{
+    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat ;
+}
+form button.btn-submit{
+    height: 3rem;
+    background-color: #31708f;
+}
+form button.btn-submit:active{
+    background-color: darkcyan;
+}
+
+form button.btn-toggle{
+    height: 3rem;
+    background-color: cadetblue;
+}
+form button.btn-toggle:active{
+background-color: burlywood;
+}
+
+form input:focus, textarea:focus{
+    background-color: darkcyan;
+}
+
+.isvalid{
+    background-color: green;
+    background-image: url('/formChallenge/images/flag-mark-green-icon.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none;
+}
+
+.invalid{
+    background-color: red;
+    background-image: url('/formChallenge/images/flag-mark-red-icon.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none;
+}
+
+.required{
+    background-image: url('/formChallenge/images/flag-mark-blue-icon.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none;
+}
+
+.hide{
+    display: none;
+}

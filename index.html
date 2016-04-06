@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Certificate of Disability Form" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certificate of Disability</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <form id="certificate-of-disability" novalidate>
+        <header>
+                <h1>CERTIFICATE OF DISABILITY</h1>
+        </header>
+        <button id="btn-toggle-physician" type="button" class="btn-toggle">Physician Section</button>
+        <button id="btn-toggle-claimant" type="button" class="btn-toggle">Claimant Section</button>
+        <button id="btn-toggle-all" type="button" class="btn-toggle">All Sections</button>
+<section id="physician-section">
+    <h2>To be completed by a Physician</h2>
+        <fieldset>
+            <legend>Patient Information</legend>
+            <label for="patient-name">Patient's Name: </label>
+            <input id="patient-name" type="text" placeholder="Enter patient's name here"/>
+            <label for="disability-date">Date of disability: </label>
+            <input id="disability-date" type="date"/>
+
+            <label for="disability-description">Description of patient's disability:</label><br/>
+            <textarea id="disability-description" placeholder="Enter description of patient's disability" rows="4"></textarea>
+            <label for="specific-reasons">Identify:<br/>(1) the specific reasons why the disability necessitates a move to the replacement dwelling<br>(2) the disability‑related requirements, including any locational requirements, of a replacement dwelling</label><br/>
+            <textarea id="specific-reasons" placeholder="Enter Specific Reasons Here" rows="4"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Physician Information</legend>
+                <label for="physician-name">Physician's Name</label>
+                <input id="physician-name" type="text" placeholder="Enter physician's name here"/>
+                <label for="physician-phone">Daytime Phone Number</label>
+                <input id="physician-phone" type="number" placeholder="(xxx) xxx-xxxx)"/>
+                <div>
+                    <label for="licensed-physician">I am a licensed physician</label>
+                    <input id="licensed-physician" type="checkbox"/>
+                </div>
+                <div>
+                    <label for="licensed-surgeon">I am a licensed surgeon</label>
+                    <input id="licensed-surgeon" type="checkbox"/>
+                </div>
+                <div>
+                    <label for="physician-specialty">My specialty is: </label>
+                    <input id="physician-specialty" type="text" placeholder="Enter specialty here"/>
+                </div>
+        </fieldset>
+        <fieldset>
+            <legend>Physician's Certification</legend>
+            <p>I certify that in my medical opinion the above named patient does qualify as a disabled person according to the definition above.</p>
+            <button id="btn-physician-signature" aria-label="Click to submit digital signature for physician" class="sign" type="button"></button>
+            <input id="physician-esignature" aria-label="Copy digital signature here" type="text" placeholder="Copy digital signature here"/>
+            <label for="physician-signature-date">Date: </label>
+            <input id="physician-signature-date" type="date" /><br/>
+        </fieldset>
+        <button id="submit-physician-portion" type="button" class="btn-submit">Submit Physician Portion</button>
+</section>
+        <section id="claimant-section">
+            <h2>To be completed by claimant, claimant's spouse or legal guardian</h2>
+        <fieldset>
+            <legend>Who is filling out this portion of the form? (Choose One)</legend>
+                <ul id="completed-by-choices">
+                    <li>
+                        <label for="completed-by-claimant">Choose if form is completed by claimant</label>
+                        <input name="form-completed-by" id="completed-by-claimant" type="radio" value="Claimant"/>
+                    </li>
+                    <li>
+                        <label for="completed-by-spouse">Choose if form is completed by spouse</label>
+                        <input name="form-completed-by" id="completed-by-spouse" type="radio" value="Spouse"/>
+                    </li>
+                    <li>
+                        <label for="completed-by-legal-guardian">Choose if form is completed by legal guardian</label>
+                        <input name="form-completed-by" id="completed-by-legal-guardian" type="radio" value="Guardian"/>
+                    </li>
+                </ul>
+        </fieldset>
+            <fieldset>
+                <legend>Claimant Information</legend>
+                <label for="claimant-name">Claimant's Name: </label>
+                <input id="claimant-name" type="text" aria-label="Enter claimants name" placeholder="Enter claimant's name"/>
+                <label for="claimant-phone">Claimant's day time phone number</label>
+                <input id="claimant-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/>
+                <label for="spouse-name">Name of Claimant's Spouse: </label>
+                <input id="spouse-name" type="text" aria-label="Enter name of claimant's spouse" placeholder="Enter name of claimant's spouse"/>
+                <label for="spouse-phone">Spouse's day time phone number</label>
+                <input id="spouse-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/>
+            </fieldset>
+            <fieldset>
+                <legend>Property Information</legend>
+                <label for="street-address">Street Address</label>
+                <input id="street-address" type="text" placeholder="Enter street address here"/>
+                <label for="city">City: </label>
+                <input id="city" type="text" placeholder="Enter city here"/>
+                <label for="zip-code">Zip Code</label>
+                <input id="zip-code" type="text" placeholder="Enter zip code address here"/>
+                <label for="parcel-number">Assessor's Parcel Number: </label>
+                <input id="parcel-number" type="text" placeholder="Enter assessor's parcel number"/>
+            </fieldset>
+            <fieldset>
+                <legend>Certificate of Disability</legend>
+                <h3>Certificate of Disability</h3>
+                <p>Select criteria A or B</p>
+                <ul id="a-or-b">
+                    <li>
+                        <label for="box-a">A</label>
+                        <input name="certification-option" id="box-a" type="radio" value="A"/>
+                        <span>
+                            The claimant or spouse must describe in his or her own words how the replacement dwelling meets the disability‑related requirements identified in Part I (Part I must be completed by a physician)
+                        </span>
+                        <textarea id="description-A" aria-label="Enter claimant/spouse description here" class="hide" placeholder="Enter claimant/spouse description here" rows="4"></textarea>
+                    </li>
+                    <li>
+                        <label for="box-b">B</label>
+                        <input name="certification-option" id="box-b" type="radio" value="B"/>
+                        <span>
+                            Relief of financial burdens
+                        </span>
+                    </li>
+                </ul>
+                <p id="certification-a" class="hide">I certify (or declare) under penalty of perjury under the laws of the State of
+            California that the primary purpose of the move to the replacement dwelling is to satisfy the identified disability‑related requirements described in Part 1</p>
+                <p id="certification-b" class="hide">I certify (or declare) under penalty of perjury under the laws of the State of
+            California that the primary purpose of the move to the replacement dwelling is to alleviate the financial burdens caused by the disability</p>
+                <button id="btn-claimant-guardian-signature" aria-label="Click here to submit digital signature for claimant/guardian" class="sign" type="button"></button>
+                <input id="claimant-guardian-signature" type="text" aria-label="Paste digital signature for claimant/guardian in here" placeholder="Paste digital signature for claimant/guardian in here"/>
+                <label for="claimant-guardian-signature-date">Date Signed: </label>
+                <input id="claimant-guardian-signature-date" type="date"/>
+
+                <button id="btn-spouse-signature" aria-label="Click to submit digital signature for claimant or guardian" class="sign" type="button"></button>
+                <input id="spouse-signature" type="text" aria-label="Paste digital signature for spouse in here" placeholder="Paste digital signature for spouse in here"/><label for="spouse-signature-date">Date Signed: </label>
+                <input id="spouse-signature-date" type="date"/>
+            </fieldset>
+            <input id="form-completed-by-email" type="email" aria-label="Preparer's Email Address" placeholder="Preparer's Email Address"/><br/>
+            <button id="submit-claimant-portion" aria-label="Click to submit claimant portion of form" type="button" class="btn-submit">Submit Claimant Portion</button>
+        </section>
+        <footer>
+            <button id="submit-all" aria-label="Click to submit entire form." type="button" class="btn-submit">Submit All</button>
+            <h2>THIS DOCUMENT IS NOT SUBJECT TO PUBLIC INSPECTION</h2>
+        </footer>
+    </form>
+<script src="main.js"></script>
+</body>
+</html>
