@@ -1,174 +1,233 @@
 /* app css stylesheet */
 /*Decoration***********************************************************************************************************/
-body, form{
+body, form {
     background: url("/formChallenge/images/http---icon-park.com-imagefiles-tartan_check01_gray1.svg");
 }
-form input, textarea{
+
+form input, textarea {
     background-color: #888888;
 }
-form legend{
+
+form legend {
     color: #31708f;
 }
-form fieldset{
+
+form fieldset {
     border-color: #888888;
-}
-form section{
-    border: #888888;
-}
-form footer{
-    border-color: #888888;
-}
-form ul{
-    list-style-type: none;
-}
-form button.sign:active{
-    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat ;
-}
-form button.sign:hover{
-    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat ;
 }
 
-form button:active{
+form section {
+    border: #888888;
+}
+
+form footer {
+    border-color: #888888;
+}
+
+form ul {
+    list-style-type: none;
+}
+
+form button.sign:active {
+    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat;
+}
+
+form button.sign:hover {
+    background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat;
+}
+
+form button:active {
     background-color: #fcff63;
 }
-form input:focus, textarea:focus{
-    background-color:#008b8b;
+
+form input:focus, textarea:focus {
+    background-color: #008b8b;
 }
-.physician-section{
+
+.flag-message {
+    width: 16rem;
+    height: 2rem;
+    background: url('/formChallenge/images/flag-mark-blue-icon.png') right top no-repeat;
+    /*background-position: right top;*/
+    /*background-repeat: no-repeat;*/
+
+    -moz-box-shadow: none;
+}
+
+.physician-section {
     background-color: #deffba;
 }
+
 #physician-section,
-#physician-section fieldset{
+#physician-section fieldset {
     border-color: #deffba;
 }
-.claimant-section{
+
+.claimant-section {
     background-color: #5f9ea0;
 }
+
 #claimant-section,
-#claimant-section fieldset{
+#claimant-section fieldset {
     border-color: #5f9ea0;
 }
-.all-sections{
+
+.all-sections {
     background-color: #afa4ff;
 }
 
-.isvalid{
+.isvalid {
     background-color: green;
     /*border: #8fff25 solid 1px;*/
 }
-.invalid{
+
+.invalid {
     background-color: red;
 }
-.required{
+
+.required {
     background-image: url('/formChallenge/images/flag-mark-blue-icon.png');
     background-position: right top;
     background-repeat: no-repeat;
     -moz-box-shadow: none;
 }
-.required-invalid{
+
+.required-missing {
+    border: #ff2f39 .2rem solid;
+}
+
+.required-invalid {
     background-image: url('/formChallenge/images/flag-mark-red-icon.png');
     background-position: right top;
     background-repeat: no-repeat;
     -moz-box-shadow: none;
 }
-.required-isvalid{
+
+.required-isvalid {
     background-image: url('/formChallenge/images/flag-mark-green-icon.png');
     background-position: right top;
     background-repeat: no-repeat;
     -moz-box-shadow: none;
 }
 
-.document-signed{
+.document-signed {
     background: url("/formChallenge/images/flag-mark-green-icon.png") center/7rem no-repeat;
     background-color: #3cff5c;
 }
-form button.document-signed{
+
+form button.document-signed {
     background: url("/formChallenge/images/flag-mark-green-icon.png") center/3rem no-repeat;
-    width:10rem;
+    width: 10rem;
     height: 3rem;
 }
 
 /*Layout***************************************************************************************************************/
-html{
+html {
     font-size: 18px;
 }
-form input, textarea{
+
+form ul {
+    padding-left: 0;
+}
+
+form input, textarea {
     font-size: 1.5rem;
 }
-form input{
+
+form input {
     height: 2rem;
 }
-form input[type=text]{
+
+form input[type=text] {
     width: 40%;
 }
-form input[type=text].single-column{
+
+form input[type=text].single-column {
     width: 100%;
 }
-form input[type=text].two-column{
+
+form input[type=text].two-column {
     width: 50%;
 }
-form input[type=date]{
+
+form input[type=date] {
     width: 19%;
 }
-form input[type=checkbox], input[type=radio]{
+
+form input[type=checkbox], input[type=radio] {
     transform: scale(2);
     -ms-transform: scale(2);
     -webkit-transform: scale(2);
-    height:1rem;
+    height: 1rem;
     margin: 1rem;
 }
-form label{
+
+form label {
     font-size: 2rem;
 }
-form textarea{
-    width:100%;
+
+form textarea {
+    width: 100%;
 }
-form p{
+
+form p {
     font: 2rem bold;
 }
+
 form h1 {
     font-size: 4rem;
     text-align: center;
 }
-form h2{
+
+form h2 {
     font-size: 2rem;
     text-align: center;
 }
-form legend{
+
+form legend {
     font-size: 2rem;
 }
-form fieldset{
+
+form fieldset {
     border: 1rem groove;
 }
-form section{
+
+form section {
     border: .2rem ridge;
     margin-bottom: .2rem;
 }
-form span{
+
+form span {
     font-size: 1.5rem;
 }
-form footer{
+
+form footer {
     text-align: center;
     border: .5rem solid;
 }
-form button.sign{
+
+form button.sign {
     height: 4rem;
     width: 10rem;
     border: none;
-    background: url("/formChallenge/images/btn-signature.png") center/7rem no-repeat ;
+    background: url("/formChallenge/images/btn-signature.png") center/7rem no-repeat;
     padding-bottom: 1rem;
 }
-form button.btn-submit{
+
+form button.btn-submit {
     height: 3rem;
+    border-radius: 1rem;
 }
-form button.btn-toggle{
+
+form button.btn-toggle {
     height: 3rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
 }
-.hide{
+
+.hide {
     display: none;
 }
-
-
 
 /*Responsive***********************************************************************************************************/
 .patient-name,
@@ -180,61 +239,72 @@ form button.btn-toggle{
 .licensed-surgeon {
     display: inline;
 }
-@media(max-width: 1350px) {
+
+@media (max-width: 1350px) {
     #patient-name,
     #claimant-guardian-signature,
     #spouse-signature,
     #physician-signature {
         width: 20rem;
     }
+
     #disability-date,
     #claimant-guardian-signature-date,
     #spouse-signature-date,
-    #physician-signature-date{
+    #physician-signature-date {
         width: 15rem;
     }
 }
-@media(max-width: 1240px){
-    .patient-name{
+
+@media (max-width: 1240px) {
+    .patient-name {
         width: 50rem;
     }
-    .disability-date{
+
+    .disability-date {
         display: block;
     }
 }
-@media (max-width: 1125px){
+
+@media (max-width: 1125px) {
     #claimant-guardian-signature,
     #spouse-signature,
     #physician-signature {
         width: 30rem;
     }
+
     .claimant-sign-date,
     .spouse-sign-date,
-    .physician-signature-date{
+    .physician-signature-date {
         display: block;
     }
 }
-@media (max-width: 900px){
+
+@media (max-width: 900px) {
     .licensed-surgeon,
-    .licensed-physician{
+    .licensed-physician {
         display: block;
     }
 }
-@media (max-width: 800px){
+
+@media (max-width: 800px) {
     form input[type=text],
-    form input[type=number]{
+    form input[type=number] {
         width: 100%;
     }
+
     .claimant-sign-date,
     .spouse-sign-date,
-    .physician-signature-date{
+    .physician-signature-date {
         display: inline;
     }
 }
-@media (max-width: 415px){
-    html{
+
+@media (max-width: 415px) {
+    html {
         font-size: 13px;
     }
+
     #claimant-guardian-signature,
     #spouse-signature,
     #physician-signature,
@@ -244,13 +314,15 @@ form button.btn-toggle{
     #parcel-number,
     #patient-name,
     #form-completed-by-email,
-    .btn-submit{
-        width:100%
+    .btn-submit {
+        width: 100%
     }
-    form header h1{
+
+    form header h1 {
         font-size: 3.5rem;
     }
-    #submit-all{
+
+    #submit-all {
         margin-top: 1rem;
     }
 }
