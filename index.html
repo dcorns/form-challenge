@@ -39,7 +39,7 @@
             <label for="physician-name">Physician's Name: </label>
             <input id="physician-name" type="text" placeholder="Enter physician's name here"/><br/>
             <label for="physician-phone">Daytime Phone Number: </label>
-            <input id="physician-phone" aria-label="Enter only numbers" type="number" placeholder="Numbers Only"/><br>
+            <input id="physician-phone" aria-label="Enter 10 digits only" type="number" class="valid-phone" placeholder="Enter 10 digits only"/><br>
 
             <div class="licensed-physician">
                 <input id="licensed-physician" type="checkbox"/>
@@ -92,11 +92,11 @@
                 <label for="claimant-name">Claimant's Name: </label>
                 <input id="claimant-name" type="text" aria-label="Enter claimants name" placeholder="Enter claimant's name"/><br/>
                 <label for="claimant-phone">Claimant's day time phone number: </label>
-                <input id="claimant-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/><br/>
+                <input id="claimant-phone" type="number" aria-label="Enter 10 digits only" class="valid-phone" placeholder="Enter 10 digits only"/><br/>
                 <label for="spouse-name">Name of Claimant's Spouse: </label>
                 <input id="spouse-name" type="text" aria-label="Enter name of claimant's spouse" placeholder="Enter name of claimant's spouse"/><br/>
                 <label for="spouse-phone">Spouse's day time phone number: </label>
-                <input id="spouse-phone" type="number" aria-label="Only enter numbers" placeholder="Numbers Only"/>
+                <input id="spouse-phone" type="number" aria-label="Enter 10 digits only" class="valid-phone" placeholder="Enter 10 digits only"/>
             </fieldset>
             <fieldset>
                 <legend>Property Information</legend>
@@ -149,9 +149,9 @@
                 </div>
 
             </fieldset>
-            <input id="form-completed-by-email" type="email" aria-label="Preparer's Email Address" placeholder="Preparer's Email Address"/><br/>
             <button id="submit-claimant-portion" aria-label="Click to submit claimant portion of form" type="button" class="btn-submit claimant-section">Submit Only Claimant's Portion</button>
         </section>
+        <input id="form-completed-by-email" type="email" aria-label="Preparer's Email Address" placeholder="Preparer's Email Address"/><br/>
         <footer>
             <button id="submit-all" aria-label="Click to submit entire form." type="button" class="btn-submit all-sections">Submit All</button>
             <h2>THIS DOCUMENT IS NOT SUBJECT TO PUBLIC INSPECTION</h2>

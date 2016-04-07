@@ -108,7 +108,6 @@
       this.isValid = regX.test(this.data);
     }
     if (this.el.type === 'email'){
-      console.log(this.data);
       regX = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$/;
       this.isValid = regX.test(this.data);
     }
@@ -117,8 +116,8 @@
       if(test.getDate()) this.isValid = true;
       else this.isValid = false;
     }
-    if (this.el.getAttribute('placeholder') === 'Numbers Only'){
-      this.isValid = this.data.length === 7; //phone number
+    if (this.el.classList.contains('valid-phone')){
+      this.isValid = this.data.length === 10; //phone number
     }
     if(this.el.classList.contains('digital-signature')){
       if(!(this.data.length > 12)) this.isValid = false;//Would be changed to whatever a valid digital signature hash requires
@@ -293,28 +292,61 @@
     var dataOut = {};
     switch (portion){
       case 'all':
-        collectClaimant();
-        collectPhysician();
+        dataOut = collectClaimant(dataOut);
+        dataOut = collectPhysician(dataOut);
         break;
       case 'physician':
-        collectPhysician();
+        dataOut = collectPhysician(dataOut);
         break;
       case 'claimant':
-        collectClaimant();
+        dataOut = collectClaimant(dataOut);
         break;
       default:
         return null;
       break;
     }
-    alert(dataOut);
-    console.dir(dataOut);
-    function collectPhysician(){
-      
+    dataOut.formEmail = formDom.formEmail.data;
+    uploadData(dataOut);
+
+    function collectPhysician(dataOut){
+      dataOut.patientName = formDom.patientName.data;
+      dataOut.disabilityDate = formDom.disabilityDate.data;
+      dataOut.disabilityDescription = formDom.disabilityDescription.data;
+      dataOut.specificReasons = formDom.specificReasons.data;
+      dataOut.physicianName = formDom.physicianName.data;
+      dataOut.physicianPhone = formDom.physicianPhone.data;
+      dataOut.licensedPhysician = formDom.licensedPhysician.data;
+      dataOut.licensedSurgeon = formDom.licensedSurgeon.data;
+      dataOut.physicianSpecialty = formDom.physicianSpecialty.data;
+      dataOut.physicianSignature = formDom.physicianSignature.data;
+      dataOut.physiciansSignatureDate = formDom.physiciansSignatureDate.data;
+      return dataOut;
     }
-    function collectClaimant(){
-      
+    function collectClaimant(dataOut){
+      dataOut.formCompletedBy = formDom.formCompletedBy.data;
+      dataOut.claimantOrGuardianName = formDom.claimantOrGuardianName.data;
+      dataOut.spouseName = formDom.spouseName.data;
+      dataOut.propertyStreetAddress = formDom.propertyStreetAddress.data;
+      dataOut.propertyCity = formDom.propertyCity.data;
+      dataOut.propertyZipCode = formDom.propertyZipCode.data;
+      dataOut.propertyParcelNumber = formDom.propertyParcelNumber.data;
+      dataOut.partAOrBChoice = formDom.partAOrBChoice.data;
+      dataOut.descriptionA = formDom.descriptionA.data;
+      dataOut.claimantOrGuardianEsignature = formDom.claimantOrGuardianEsignature.data;
+      dataOut.claimantOrGuardianSignatureDate = formDom.claimantOrGuardianSignatureDate.data;
+      dataOut.claimantOrGuardianPhone = formDom.claimantOrGuardianPhone.data;
+      dataOut.spouseEsignature = formDom.spouseEsignature.data;
+      dataOut.spouseSignatureDate = formDom.spouseSignatureDate.data;
+      dataOut.spousePhone = formDom.spousePhone.data;
+      return dataOut;
     }
   }
+
+  function uploadData(data){
+    alert('Your data has been uploaded to the console log');
+    console.dir(data);
+  }
+
 //Load the Dom
   for (var prop in formDom) {
     if (formDom.hasOwnProperty(prop)) {
@@ -323,10 +355,10 @@
   }
 
 
-  //testing
-  window.addEventListener('resize', function(e){
-    console.clear();
-    console.log(innerHeight, innerWidth);
-    console.log(outerHeight, outerWidth);
-  })
+  //testing responsive points
+  // window.addEventListener('resize', function(e){
+  //   console.clear();
+  //   console.log(innerHeight, innerWidth);
+  //   console.log(outerHeight, outerWidth);
+  // })
 })();
