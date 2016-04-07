@@ -45,6 +45,7 @@
     btnSpouseEsigned: new FormObject(document.getElementById('btn-spouse-signature')),
     spousePhone: new FormObject(document.getElementById('spouse-phone')),
     formEmail: new FormObject(document.getElementById('form-completed-by-email'), true),
+    btnSubmitClaimant: new FormObject(document.getElementById('submit-claimant-portion')),
     btnSubmitAllButton: new FormObject(document.getElementById('submit-all'))
   };
 
@@ -184,6 +185,24 @@
     handleESign(formDom.spouseEsignature, formDom.spouseSignatureDate, e);
   }.bind(this), event);
 
+  formDom.btnSubmitAllButton.el.addEventListener('click', function(e){
+    if(validateForm()){
+      sendData('all');
+    }
+  }.bind(this), event);
+
+  formDom.btnSubmitPhysician.el.addEventListener('click', function(e){
+    if(validatePhysicianSection()){
+      sendData('physician');
+    }
+  }.bind(this), event);
+
+  formDom.btnSubmitClaimant.el.addEventListener('click', function(e){
+    if(validateClaimantSection()){
+      sendData('claimant');
+    }
+  }.bind(this), event);
+
   //helpers
   function toggleVisibility(el){
     if(el.classList.contains('hide')){
@@ -257,7 +276,45 @@
       //then call digital signature algorithms
     }
   }
-  
+
+  function validateForm(){
+    return validateClaimantSection() && validatePhysicianSection();
+  }
+
+  function validatePhysicianSection(){
+    return true;
+  }
+
+  function validateClaimantSection(){
+    return true;
+  }
+
+  function sendData(portion){
+    var dataOut = {};
+    switch (portion){
+      case 'all':
+        collectClaimant();
+        collectPhysician();
+        break;
+      case 'physician':
+        collectPhysician();
+        break;
+      case 'claimant':
+        collectClaimant();
+        break;
+      default:
+        return null;
+      break;
+    }
+    alert(dataOut);
+    console.dir(dataOut);
+    function collectPhysician(){
+      
+    }
+    function collectClaimant(){
+      
+    }
+  }
 //Load the Dom
   for (var prop in formDom) {
     if (formDom.hasOwnProperty(prop)) {
