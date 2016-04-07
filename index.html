@@ -60,13 +60,13 @@
             <legend>Physician's Certification</legend>
             <p>I certify that in my medical opinion the above named patient does qualify as a disabled person according to the definition above.</p>
             <button id="btn-physician-signature" aria-label="Click to submit digital signature for physician" class="sign" type="button"></button>
-            <input id="physician-signature" aria-label="Copy digital signature here" type="text" placeholder="Copy digital signature here"/>
+            <input id="physician-signature" class="digital-signature" aria-label="Paste physician's digital signature here" type="text" placeholder="Paste physician's digital signature here"/>
             <div class="physician-signature-date">
                 <label for="physician-signature-date">Date Signed: </label>
                 <input id="physician-signature-date" type="date" /><br/>
             </div>
         </fieldset>
-        <button id="submit-physician-portion" type="button" class="btn-submit">Submit Only Physician's Portion</button>
+        <button id="submit-physician-portion" type="button" class="btn-submit physician-section">Submit Only Physician's Portion</button>
 </section>
         <section id="claimant-section">
             <h2>To be completed by claimant, claimant's spouse or legal guardian</h2>
@@ -136,13 +136,13 @@
             California that the primary purpose of the move to the replacement dwelling is to alleviate the financial burdens caused by the disability</p>
 
                 <button id="btn-claimant-guardian-signature" aria-label="Click here to submit digital signature for claimant/guardian" class="sign" type="button"></button>
-                <input id="claimant-guardian-signature" type="text" aria-label="Paste digital signature for claimant/guardian in here" placeholder="Paste digital signature for claimant/guardian in here"/>
+                <input id="claimant-guardian-signature" class="digital-signature" type="text" aria-label="Paste digital signature for claimant/guardian in here" placeholder="Paste claimant's digital signature here"/>
                 <div class="claimant-sign-date">
                     <label for="claimant-guardian-signature-date">Date Signed: </label>
                     <input id="claimant-guardian-signature-date" type="date"/>
                 </div>
                 <button id="btn-spouse-signature" aria-label="Click to submit digital signature for claimant or guardian" class="sign" type="button"></button>
-                <input id="spouse-signature" type="text" aria-label="Paste digital signature for spouse in here" placeholder="Paste digital signature for spouse in here"/>
+                <input id="spouse-signature" class="digital-signature" type="text" aria-label="Paste digital signature for spouse in here" placeholder="Paste spouse's digital signature here"/>
                 <div class="spouse-sign-date">
                     <label for="spouse-signature-date">Date Signed: </label>
                     <input id="spouse-signature-date" type="date"/>
@@ -150,10 +150,10 @@
 
             </fieldset>
             <input id="form-completed-by-email" type="email" aria-label="Preparer's Email Address" placeholder="Preparer's Email Address"/><br/>
-            <button id="submit-claimant-portion" aria-label="Click to submit claimant portion of form" type="button" class="btn-submit">Submit Only Claimant's Portion</button>
+            <button id="submit-claimant-portion" aria-label="Click to submit claimant portion of form" type="button" class="btn-submit claimant-section">Submit Only Claimant's Portion</button>
         </section>
         <footer>
-            <button id="submit-all" aria-label="Click to submit entire form." type="button" class="btn-submit">Submit All</button>
+            <button id="submit-all" aria-label="Click to submit entire form." type="button" class="btn-submit all-sections">Submit All</button>
             <h2>THIS DOCUMENT IS NOT SUBJECT TO PUBLIC INSPECTION</h2>
         </footer>
     </form>

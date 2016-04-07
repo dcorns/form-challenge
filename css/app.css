@@ -27,34 +27,37 @@ form button.sign:active{
 form button.sign:hover{
     background: url("/formChallenge/images/btn-signature-active.png") center/7rem no-repeat ;
 }
-form button.btn-submit{
-    background-color: #31708f;
-}
-form button.btn-submit:active{
-    background-color: darkcyan;
-}
-form button.btn-toggle{
-    background-color: cadetblue;
-}
-form button.btn-toggle:active{
-    background-color: burlywood;
+
+form button:active{
+    background-color: #fcff63;
 }
 form input:focus, textarea:focus{
-    background-color: darkcyan;
+    background-color:#008b8b;
 }
+.physician-section{
+    background-color: #deffba;
+}
+#physician-section,
+#physician-section fieldset{
+    border-color: #deffba;
+}
+.claimant-section{
+    background-color: #5f9ea0;
+}
+#claimant-section,
+#claimant-section fieldset{
+    border-color: #5f9ea0;
+}
+.all-sections{
+    background-color: #afa4ff;
+}
+
 .isvalid{
     background-color: green;
-    background-image: url('/formChallenge/images/flag-mark-green-icon.png');
-    background-position: right top;
-    background-repeat: no-repeat;
-    -moz-box-shadow: none;
+    /*border: #8fff25 solid 1px;*/
 }
 .invalid{
     background-color: red;
-    background-image: url('/formChallenge/images/flag-mark-red-icon.png');
-    background-position: right top;
-    background-repeat: no-repeat;
-    -moz-box-shadow: none;
 }
 .required{
     background-image: url('/formChallenge/images/flag-mark-blue-icon.png');
@@ -62,7 +65,28 @@ form input:focus, textarea:focus{
     background-repeat: no-repeat;
     -moz-box-shadow: none;
 }
+.required-invalid{
+    background-image: url('/formChallenge/images/flag-mark-red-icon.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none;
+}
+.required-isvalid{
+    background-image: url('/formChallenge/images/flag-mark-green-icon.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none;
+}
 
+.document-signed{
+    background: url("/formChallenge/images/flag-mark-green-icon.png") center/7rem no-repeat;
+    background-color: #3cff5c;
+}
+form button.document-signed{
+    background: url("/formChallenge/images/flag-mark-green-icon.png") center/3rem no-repeat;
+    width:10rem;
+    height: 3rem;
+}
 
 /*Layout***************************************************************************************************************/
 html{

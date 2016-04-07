@@ -19,9 +19,9 @@
     licensedPhysician: new FormObject(document.getElementById('licensed-physician')),
     licensedSurgeon: new FormObject(document.getElementById('licensed-surgeon')),
     physicianSpecialty: new FormObject(document.getElementById('physician-specialty')),
-    physicianEsignature: new FormObject(document.getElementById('physician-signature')),
+    physicianSignature: new FormObject(document.getElementById('physician-signature')),
     btnPhysicianSignature: new FormObject(document.getElementById('btn-physician-signature')),
-    signatureDate: new FormObject(document.getElementById('physician-signature-date')),
+    physiciansSignatureDate: new FormObject(document.getElementById('physician-signature-date')),
     btnSubmitPhysician: new FormObject(document.getElementById('submit-physician-portion')),
     btnToggleClaimant: new FormObject(document.getElementById('btn-toggle-claimant')),
     sectionClaimant: new FormObject(document.getElementById('claimant-section')),
@@ -38,11 +38,11 @@
     certB: new FormObject(document.getElementById('certification-b')),
     claimantOrGuardianEsignature: new FormObject(document.getElementById('claimant-guardian-signature')),
     claimantOrGuardianSignatureDate: new FormObject(document.getElementById('claimant-guardian-signature-date')),
-    claimantOrGuardianEsigned: new FormObject(document.getElementById('btn-claimant-guardian-signature')),
+    btnClaimantOrGuardianEsigned: new FormObject(document.getElementById('btn-claimant-guardian-signature')),
     claimantOrGuardianPhone: new FormObject(document.getElementById('claimant-phone'), true),
     spouseEsignature: new FormObject(document.getElementById('spouse-signature')),
     spouseSignatureDate: new FormObject(document.getElementById('spouse-signature-date')),
-    spouseEsigned: new FormObject(document.getElementById('btn-spouse-signature')),
+    btnSpouseEsigned: new FormObject(document.getElementById('btn-spouse-signature')),
     spousePhone: new FormObject(document.getElementById('spouse-phone')),
     formEmail: new FormObject(document.getElementById('form-completed-by-email'), true),
     btnSubmitAllButton: new FormObject(document.getElementById('submit-all'))
@@ -68,14 +68,12 @@
     if(this.el.nodeName && this.el.nodeName === 'INPUT' || this.el.nodeName === 'TEXTAREA'){
       this.el.addEventListener('change', function (e) {
         self.isDirty = true;
-        //bind element value for text, data, and textarea
-        if(self.el.type === 'text' || self.el.type === 'date' || self.el.type === 'textarea'){
+        //bind element value for text, data, email and textarea
+        if(self.el.type === 'text' || self.el.type === 'date' || self.el.type === 'textarea' || self.el.type === 'email' || self.el.type ==='number'){
           self.data = e.target.value;
-          console.log(self.data);
         }
         if(self.el.type === 'checkbox'){
           self.data = e.target.checked;
-          console.log(self.data);
         }
         self.validate();
       });
@@ -89,7 +87,7 @@
     }
 
   //setup validation and bind data for input:text and textarea onkeyup
-    if (this.el.type === 'text' || this.el.type === 'textarea') {
+    if (this.el.type === 'text' || this.el.type === 'textarea' || this.el.type === 'email' || this.el.type === 'number') {
       this.el.addEventListener('keyup', function (e) {
         self.data = e.target.value;
         self.isDirty = true;
@@ -102,11 +100,29 @@
     var regX = /\S+/;
     if (this.el.type === 'text') {
       regX = /^[\w ]+$/;
+      this.isValid = regX.test(this.data);
     }
     if (this.el.type === 'textarea') {
-      regX = /[^<>]+$/;
+      this.isvalid = this.data.length > 20; //++++++++++++need to change this accept only certain characters, but more characters than what is allowed in type text
+      this.isValid = regX.test(this.data);
     }
-    this.isValid = regX.test(this.data);
+    if (this.el.type === 'email'){
+      console.log(this.data);
+      regX = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$/;
+      this.isValid = regX.test(this.data);
+    }
+    if (this.el.type === 'date'){
+      var test = new Date(this.data);
+      if(test.getDate()) this.isValid = true;
+      else this.isValid = false;
+    }
+    if (this.el.getAttribute('placeholder') === 'Numbers Only'){
+      this.isValid = this.data.length === 7; //phone number
+    }
+    if(this.el.classList.contains('digital-signature')){
+      if(!(this.data.length > 12)) this.isValid = false;//Would be changed to whatever a valid digital signature hash requires
+      else this.isValid = true;
+    }
     this.markStatus();
   };
 
@@ -115,12 +131,20 @@
       this.el.classList.add('isvalid');
       this.el.classList.remove('invalid');
       this.el.classList.remove('required');
+      if(this.required){
+        this.el.classList.add('required-isvalid');
+        this.el.classList.remove('required-invalid');
+      }
     }
     else {
       if (this.isDirty) {
         this.el.classList.add('invalid');
         this.el.classList.remove('isValid');
         this.el.classList.remove('required');
+        if(this.required){
+          this.el.classList.add('required-invalid');
+          this.el.classList.remove('required-isvalid');
+        }
       }
     }
   };
@@ -143,6 +167,24 @@
     if(formDom.sectionPhysician.el.classList.contains('hide')) toggleVisibility(formDom.sectionPhysician.el);
   }.bind(this));
 
+  
+
+  
+
+  //Buttons
+  formDom.btnPhysicianSignature.el.addEventListener('click', function(e){
+    handleESign(formDom.physicianSignature, formDom.physiciansSignatureDate, e);
+  }.bind(this), event);
+
+  formDom.btnClaimantOrGuardianEsigned.el.addEventListener('click', function(e){
+    handleESign(formDom.claimantOrGuardianEsignature, formDom.claimantOrGuardianSignatureDate, e);
+  }.bind(this), event);
+
+  formDom.btnSpouseEsigned.el.addEventListener('click', function(e){
+    handleESign(formDom.spouseEsignature, formDom.spouseSignatureDate, e);
+  }.bind(this), event);
+
+  //helpers
   function toggleVisibility(el){
     if(el.classList.contains('hide')){
       el.classList.remove('hide');
@@ -190,7 +232,32 @@
         break;
     }
   }
-
+  
+  function handleESign(objSignature, objDate, event){
+    if(objSignature.el.value.length < 12){
+      objSignature.isValid = false;
+      objSignature.required = true;
+      objSignature.isDirty = true;
+      objSignature.init();
+      objSignature.markStatus();
+    }
+    objDate.required = true;
+    objDate.isDirty = true;
+    objDate.init();
+    objDate.validate();
+    if(objDate.isValid && objSignature.isValid){
+      objDate.el.setAttribute('readonly', 'true');
+      objSignature.el.value = 'Document Signed';
+      objSignature.el.setAttribute('readonly', 'true');
+      objDate.el.classList.add('document-signed');
+      objSignature.el.classList.add('document-signed');
+      event.target.setAttribute('disabled', 'true');
+      event.target.classList.add('document-signed');
+      event.target.classList.remove('sign');
+      //then call digital signature algorithms
+    }
+  }
+  
 //Load the Dom
   for (var prop in formDom) {
     if (formDom.hasOwnProperty(prop)) {
